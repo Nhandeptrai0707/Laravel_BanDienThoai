@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="top-bar">
+        <!-- More -->
+        <button class="top-bar__more d-none d-lg-block js-toggle" toggle-target="#navbar">
+            <img src="./assets/icons/more.svg" alt="" class="icon top-bar__more-icon" />
+        </button>
+        <!-- Logo -->
+        <a href="./" class="logo top-bar__logo">
+            <img src="./assets/icons/logo.svg" alt="grocerymart" class="logo__img top-bar__logo-img" />
+            <h1 class="logo__title top-bar__logo-title">grocerymart</h1>
+        </a>
+
+        <!-- navbar -->
+        <nav id="navbar" class="navbar hide">
+            <button class="navbar__close-btn js-toggle" toggle-target="#navbar">
+                <img src="./assets/icons/arrow-left.svg" alt="" />
+            </button>
+            <a href="./checkout.html" class="nav-btn d-none d-md-flex">
+                <img src="./assets/icons/cart.svg" alt="" class="nav-btn-icon icon" />
+                <span class="nav-btn__title">Giỏ hàng</span>
+                <span class="nav-btn__qnt">3</span>
+            </a>
+            <a href="#!" class="nav-btn d-none d-md-flex">
+                <img src="./assets/icons/heart.svg" alt="" class="nav-btn-icon icon" />
+                <span class="nav-btn__title">Yêu thích</span>
+                <span class="nav-btn__qnt">3</span>
+            </a>
+
+            <ul class="navbar__list js-dropdown-list">
+                <!-- item 1 -->
+                <li class="navbar__item">
+                    <a href="./product.html" class="navbar__link"> Điện thoại</a>
+                </li>
+                <!-- item 2 -->
+                <li class="navbar__item">
+                    <a href="#!" class="navbar__link"> Máy tính bảng </a>
+                </li>
+
+                <li class="navbar__item">
+                    <a href="#!" class="navbar__link"> Phụ Kiện </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="navbar__overlay js-toggle" toggle-target="#navbar"></div>
+        <!-- actions -->
+        <div class="top-act">
+            <a href="./sign-in.html" class="btn btn--text d-md-none">Đăng Nhập</a>
+            <a href="./sign-up.html" class="btn btn--primary top-act__sign-up">Đăng kí</a>
+        </div>
+    </div>
+</div>

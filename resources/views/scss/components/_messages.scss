@@ -1,0 +1,15 @@
+.message {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1.6rem;
+    text-align: left;
+    font-weight: 500;
+    border-radius: 10px;
+    line-height: 1.3;
+
+    &--success {
+        background-color: var(--message-bg-color);
+        border: 1px solid #46a05c;
+        color: #506856;
+    }
+}
