@@ -1,7 +1,6 @@
 <?php
-
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,8 +13,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/login',[LoginController::class,'ShowFormLogin']);
-Route::post('/login',[LoginController::class,'Login']);
-Route::get('/login/nhan',[LoginController::class,'thanhcong']);
-Route::get('/thatbai',[LoginController::class,'thatbai']);
+
+Route::get("/", [PagesController::class,"index"])->name("index");
+Route::get('/signin', [LoginController::class, 'ShowFormLogin'])->name('signin');
+Route::post('/login', [LoginController::class, 'Login'])->name('login');
+Route::get('/thanhcong', [LoginController::class, 'thanhcong'])->name('thanhcong');
+Route::get('/thatbai', [LoginController::class, 'thatbai'])->name('thatbai');
 

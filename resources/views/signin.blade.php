@@ -5,10 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Đăng Nhập</title>
         <!-- favicon -->
-        <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/favicon/apple-touch-icon.png') }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/favicon/favicon-32x32.png') }}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/favicon/favicon-16x16.png') }}">
-
+        <link rel="apple-touch-icon" sizes="76x76" href="./assets/favicon/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon/favicon-16x16.png" />
         <link rel="manifest" href="./assets/favicon/site.webmanifest" />
         <link rel="mask-icon" href="./assets/favicon/safari-pinned-tab.svg" color="#5bbad5" />
         <meta name="msapplication-TileColor" content="#da532c" />
@@ -39,14 +38,14 @@
                             Xin chào! Rất vui được đón tiếp bạn trở lại. Đăng nhập để nhận những ưu đãi mới nhất của
                             chúng tôi
                         </p>
-                        <form action="{{ url('/login') }}" method="POST">
-                            @csrf
+                        <form action="{{ route('login') }}" method="POST" class="form auth__form" autocomplete="off">
+                            @csrf <!-- Bảo vệ form chống CSRF -->
+                        
                             <div class="form__group">
                                 <div class="form__text-input">
                                     <input
                                         type="email"
                                         name="email"
-                                        id=""
                                         placeholder="Email"
                                         class="form__input"
                                         required
@@ -55,14 +54,14 @@
                                     <img src="./assets/icons/mail.svg" alt="" class="form__input-icon icon" />
                                     <img src="./assets/icons/error.svg" alt="" class="form__input-icon-error" />
                                 </div>
-                                <p class="form__error">Email chưa đúng đinh dạng</p>
+                                <p class="form__error">Email chưa đúng định dạng</p>
                             </div>
+                        
                             <div class="form__group">
                                 <div class="form__text-input">
                                     <input
                                         type="password"
                                         name="password"
-                                        id=""
                                         placeholder="Mật khẩu"
                                         class="form__input"
                                         required
@@ -71,25 +70,22 @@
                                     <img src="./assets/icons/lock.svg" alt="" class="form__input-icon icon" />
                                     <img src="./assets/icons/error.svg" alt="" class="form__input-icon-error" />
                                 </div>
-                                <p class="form__error">Password chưa đúng đinh dạng</p>
+                                <p class="form__error">Password chưa đúng định dạng</p>
                             </div>
-
+                        
                             <div class="form__group form__group--inline">
                                 <label class="form__checkbox">
-                                    <input type="checkbox" id="" name="" class="form__checkbox-input" hidden />
-                                    <span class="form__checkbox-label">Đặt làm mặc định </span>
+                                    <input type="checkbox" name="remember" class="form__checkbox-input" hidden />
+                                    <span class="form__checkbox-label">Đặt làm mặc định</span>
                                 </label>
                                 <a href="./reset-password.html" class="auth__link form__pull-right"> Quên mật khẩu </a>
                             </div>
-                            <div class="form__group auth__btn-group">
-                                <button class="btn btn--primary auth__btn-su form__submit-btn">Đăng nhập</button>
-                                <button class="btn btn--outline auth__btn">
-                                    <img src="./assets/icons/gg.svg" alt="" class="btn-icon" />
-                                    Đăng nhập bằng Google
-                                </button>
-                            </div>
                         
-                        </form>
+                            <div class="form__group auth__btn-group">
+                                <button type="submit" class="btn btn--primary auth__btn-su form__submit-btn">Đăng nhập</button>
+                                <button class="btn btn--outline auth__btn">
+                             
+                        
                         <p class="auth__text">
                             Bạn chưa có tài khoản?
                             <a href="./sign-up.html" class="auth__link" style="font-size: inherit">Đăng ký</a>

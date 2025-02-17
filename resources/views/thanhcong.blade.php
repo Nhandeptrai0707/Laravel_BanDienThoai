@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <h1>{{ $makh}}</h1>
 </head>
 <body>
-    <h1>Nhân</h1>
+    <h1>Chúc Mừng Bạn</h1>
 </body>
 </html>

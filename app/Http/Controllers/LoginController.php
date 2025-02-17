@@ -15,25 +15,22 @@ class LoginController extends Controller
     public function Login(Request $request){
         $email = $request->input("email");
         $password = $request->input("password");
-        try{
-            $CheckDangNhap = DB::select("EXEC DangNhap @email = ?,@password =? ",[$email,$password]);
-        if ($CheckDangNhap) {
-            return response()->json(['message' => 'Đăng nhập thành công', 'makh' => $CheckDangNhap[0]->makh]);
-        } else {
-            return response()->json(['message' => 'Tên đăng nhập hoặc mật khẩu không đúng']);
-        }
-        // if($email == "Nhan@gmail.com"&& $password == "111111"){
-        //     return redirect("/login/nhan");
-        // }else{
-        //     return redirect("thatbai");
-        // }
-        }catch(QueryException $e){
+        try {
+            $CheckDangNhap = DB::select("EXEC DangNhap @email = ?, @password = ?", [$email, $password]);
+            if ($CheckDangNhap!=null){
+                $makh = $CheckDangNhap[0]->makh;
+                session(['makh' => $makh]);
+                return redirect()->route('thanhcong')->with('makh', $makh);
+            } else{
+                return redirect()->route('thatbai');
+            }
+        } catch(QueryException $e) {
             return response()->json(['message' => 'Lỗi khi thực thi stored procedure', 'error' => $e->getMessage()]);
         }
-        
     }
     public function thanhcong(Request $request){
-        return view("nhan");
+        $makh = session('makh', 'Không có mã khách hàng');
+        return view("thanhcong", ['makh' => $makh]);
     }
     public function thatbai(Request $request){
         return view("thatbai");
